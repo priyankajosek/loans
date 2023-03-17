@@ -2,10 +2,10 @@ import logging
 from django.shortcuts import render
 from rest_framework.generics import GenericAPIView
 from rest_framework.response import Response
-from django.http import JsonResponse
 from rest_framework import status
 from .serializers import LoanSerializer
 from .services import LoanServices
+
 # Create your views here.
 
 class EmiView(GenericAPIView):
