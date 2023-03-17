@@ -9,3 +9,5 @@ payload :
 }
 'tenure' should be given as the number of months.
 Swagger documentation included in the home page.
+
+DB used: Sqlite
