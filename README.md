@@ -1,4 +1,4 @@
-# loans - EMI DEtails Generator
+# Loans - EMI Details Generator
 
 urls : [POST,GET] http:<localhost>/api/loans/emi/
 payload : 
