@@ -23,7 +23,7 @@ class EmiView(GenericAPIView):
             return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
         try:
             data = self.loan_services.emi_calculator(request.data)
-            return Response(data,status=status.HTTP_200_OK)
+            return Response(data,status=status.HTTP_201_CREATED)
         except Exception as e:
             self.logger.error("GENERATE EMI API FAILED",e)
             data = {'message':'Something went wrong. Please try again later'}
