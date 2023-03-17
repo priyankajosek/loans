@@ -24,23 +24,23 @@ class LoanServices():
 
         # Calculates instalment details for every month and adds it to a list
         for i in range(tenure):
-            d = {}
-            d['instalment'] = i+1
+            instalment_details = {}
+            instalment_details['instalment'] = i+1
 
             # finding the instalment month
             instalment_month = (current_month +i) % 12
             if instalment_month == 0:
                 instalment_month =12
-            d['month'] = calendar.month_name[instalment_month]
+            instalment_details['month'] = calendar.month_name[instalment_month]
 
             # finding the instalment year
-            d['year'] = current_year + ((current_month-1+i)//12)
+            instalment_details['year'] = current_year + ((current_month-1+i)//12)
 
             # loan percentage paid till date
             loan_paid_till_date = round(((i+1)/tenure)*100,2)
-            d['loan_paid_till_date'] = str(loan_paid_till_date)+' %'
+            instalment_details['loan_paid_till_date'] = str(loan_paid_till_date)+' %'
             
-            balance.append(d)
+            balance.append(instalment_details)
         return balance
 
     # Calculates the total interest payable
