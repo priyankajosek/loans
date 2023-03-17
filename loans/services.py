@@ -1,6 +1,5 @@
 from datetime import datetime
 import calendar
-import json
 from django.db.models import Count,Avg
 from .models import Loan
 
@@ -60,14 +59,11 @@ class LoanServices():
         res['emi_amount'] = emi_amount
         res['total_interest'] = self.get_total_interst(data,emi_amount)
         res['balance'] = self.calculate_balance(data)
-        
-        # res['total_interest'] = total_interest
-        # res['balance'] = balance
         return res
     
 
     # Aggrgate values of loan attributes fetched from DB
-    def generate_emi_details_api_status(self):
+    def emi_api_status(self):
         api_status = Loan.objects.filter(is_deleted=False).aggregate(
             total_hits = Count('id'),
             loan_avg=Avg('loan_amount'),

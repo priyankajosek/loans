@@ -6,8 +6,6 @@ from rest_framework import status
 from .serializers import LoanSerializer
 from .services import LoanServices
 
-# Create your views here.
-
 class EmiView(GenericAPIView):
     serializer_class = LoanSerializer
     loan_services = LoanServices()
@@ -34,11 +32,11 @@ class EmiView(GenericAPIView):
     
     
     """
-    API for returning the status of Generate EMI details API
+    API for fetching the status of the above POST API
     """
     def get(self,request):
         try:
-            data = self.loan_services.generate_emi_details_api_status()
+            data = self.loan_services.emi_api_status()
             return Response(data,status=status.HTTP_200_OK)
         except Exception as e:
             self.logger.error("GENERATE EMI API FAILED",e)
